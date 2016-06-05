@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Generate a playlist from your next concert</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.min.css">
+
+    <style type="text/css">
+		.data-cloak {
+			display: none;
+		}
+	</style>
+  </head>
+
+  <body>
+      <div id="spotify-app">
+          <div class="container-fluid">
+              <div class="row">
+                  <div id="login" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <h2>Generate a playlist from your next concert</h2>
+                      <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+                  </div>
+                  <div id="loggedin" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <div class="row">
+                          <div id="user-profile" class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                              <div class="media">
+                                  <div class="pull-left">
+                                      <img class="media-object" width="150" src="{{userimage}}" /><br/>
+                                      {{username}}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                              <div class="row">
+                                  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                                      <label>Select your location:</label>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                                      <select class="input-large form-control data-cloak" id="state-list" data-change="updateCurrentLocation()" >
+                                          <option value="0" selected="selected">Select a State</option>
+                                          <option data-repeat="state in states" value="{{state.abbreviation}}">{{state.name}}</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              </dl>
+                              <div id="genres" class="well">
+                                  <fieldset class="form-group">
+                                      <label for="genres">Type your favourite genres: (min. 3, max. 5)</label>
+                                      <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock"/>
+
+                                      <ul id="genre-list" class="data-cloak">
+                                          <li data-repeat="genre in genres">
+                                              <div class="view">
+                                                  <label>{{genre}}</label>
+                                              </div>
+                                          </li>
+                                      </ul>
+                                  </fieldset>
+                                  <button id="generate-playlist__button" class="btn btn-default disabled" data-click="generatePlaylist()">Generate Playlist</button>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div id="oauth"></div>
+              </div>
+          </div>
+      </div>
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>The playlist has been created</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js" charset="utf-8"></script>
+
+
+    <script src="js/libs/soma.min.js"></script>
+	<script src="js/libs/soma-template.js"></script>
+	<script src="js/libs/typeahead.min.js"></script>
+
+	<script src="js/models/models.js"></script>
+	<script src="js/services/services.js"></script>
+	<script src="js/views/views.js"></script>
+	<script src="js/controllers/controllers.js"></script>
+	<script src="js/app.js"></script>
+
+
+    <script>
+
+
+
+
+
+
+    </script>
+</html>

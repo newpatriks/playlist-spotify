@@ -1,0 +1,22 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "spotify",
+  "main": "index.js",
+  "repository": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordi Llobet",
+  "license": "ISC",
+  "devDependencies": {
+    "cookie-parser": "^1.4.2",
+    "express": "^4.13.4",
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "sass": "^0.5.0"
+  }
+}
