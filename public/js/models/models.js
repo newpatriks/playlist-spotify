@@ -49,12 +49,12 @@ var spotifyApp = window.spotifyApp || {};
 		}
     };
 
-	spotifyApp.GenresFullListModel = function(dispatcher) {
+	spotifyApp.GenresModel = function(dispatcher) {
 		this.dispatcher = dispatcher;
 		this.genres = [];
 	};
 
-	spotifyApp.GenresFullListModel.prototype = {
+	spotifyApp.GenresModel.prototype = {
 			setup: function(data) {
 				this.genres = data;
 				this.update();
@@ -72,13 +72,38 @@ var spotifyApp = window.spotifyApp || {};
 	};
 	spotifyApp.ArtistsModel.prototype = {
 		add: function(artistId, artistName) {
-			var artist = { 'id': artistId, 'name': artistName };
+			var artist = {
+				'id': artistId,
+				'name': artistName,
+				'songkickMbid': '',
+				'onTour': false,
+				'eligible': false
+			};
 			for (var i=0; i < this.artists.length; i++) {
 		        if (this.artists[i].id === artistId) {
 		            return;
 		        }
 		    }
 			this.artists.push(artist);
+		},
+		remove: function(artistId) {
+			for (var i=0; i < this.artists.length; i++) {
+		        if (this.artists[i].id === artistId) {
+					this.artists.splice(i, 1);
+					return;
+				}
+			}
+		},
+		update: function(id, name, songkickMbid, onTour, eligible) {
+			for (var i=0; i < this.artists.length; i++) {
+				var artist = this.artists[i];
+		        if (artist.id === id) {
+					this.artists[i].name = name ? name : this.artists[i].name;
+					this.artists[i].songkickMbid = songkickMbid ? songkickMbid : this.artists[i].songkickMbid;
+					this.artists[i].onTour = onTour ? onTour : this.artists[i].onTour;
+					this.artists[i].eligible =  eligible ? eligible : this.artists[i].eligible;
+				}
+			}
 		},
 		updateArtistOnTour: function(artistId, mbid) {
 			for (var i=0; i < this.artists.length; i++) {
@@ -88,8 +113,25 @@ var spotifyApp = window.spotifyApp || {};
 		        }
 		    }
 		},
+		getFirst: function() {
+			return this.artists[0];
+		},
+		getNext: function(artistId) {
+			for (var i=0; i < this.artists.length; i++) {
+		        if (this.artists[i].id === artistId) {
+					return i < this.artists.length - 1 ? this.artists[i + 1] : null;
+		        }
+		    }
+		},
 		getAll: function() {
 			return this.artists;
+		},
+		isLast: function(artistId) {
+			for (var i=0; i < this.artists.length; i++) {
+		        if (this.artists[i].id === artistId) {
+					return i === (this.artists.length - 1);
+		        }
+		    }
 		},
 		setEligible: function(artistId) {
 			for (var i=0; i < this.artists.length; i++) {
@@ -121,8 +163,13 @@ var spotifyApp = window.spotifyApp || {};
 		setup: function(events) {
 			this.events = events;
 		},
-		add: function() {
-
+		add: function(event) {
+			for (var i=0; i < this.events.length; i++) {
+		        if (this.events[i].id === event.id) {
+		            return;
+		        }
+		    }
+			this.events.push(event);
 		},
 		getAll: function() {
 			return this.events;
@@ -446,6 +493,26 @@ var spotifyApp = window.spotifyApp || {};
 		}
 	};
 
+	spotifyApp.ModalModel = function(dispatcher) {
+		this.dispatcher = dispatcher;
+		this.messages = [
+			'Just starting to cook your playlist :) ',
+			'Looking for artists out there playling...',
+			'Picking up the tracks that you need to prepare for the concert...',
+			'Your playlist is ready!'
+		];
+		this.currentMessage = 0;
+	};
+
+	spotifyApp.ModalModel.prototype = {
+		update: function(i) {
+			this.currentMessage = i;
+			this.dispatcher.dispatch(spotifyApp.events.RENDER);
+		},
+		getCurrentMessage: function() {
+			return this.messages[this.currentMessage];
+		}
+	};
 
 
 })( window );

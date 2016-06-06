@@ -6,26 +6,29 @@ var spotifyApp = window.spotifyApp || {};
 
     var ENTER_KEY = 13;
 
-	spotifyApp.Template = function(scope, template, dispatcher, genresFullListModel, profileModel, statesModel) {
+	spotifyApp.Template = function(scope, template, dispatcher, genresModel, profileModel, statesModel, modalModel) {
 
 		dispatcher.addEventListener(spotifyApp.events.RENDER, function( event ) {
 
             var profile = profileModel.getAll();
-            var genres = genresFullListModel.getAll();
+            var genres = genresModel.getAll();
 			var states = statesModel.getAll();
+			var currentModelMessage = modalModel.getCurrentMessage();
+
+			console.log(currentModelMessage);
 
             scope.username = profile.name;
             scope.userimage = profile.image;
             scope.genres = profile.genres;
             scope.genresFullList = genres;
 			scope.states = states;
+			scope.modalMessage = currentModelMessage;
 
             if (scope.genres.length >= 3) {
                 // enable button
                 var element = window.document.getElementById('generate-playlist__button');
                 element.classList.remove('disabled');
             }
-
 
 			template.render();
 

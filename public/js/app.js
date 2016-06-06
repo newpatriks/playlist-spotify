@@ -9,11 +9,12 @@ var spotifyApp = window.spotifyApp || {};
 		init: function() {
 
             this.injector.mapClass('profileModel', spotifyApp.ProfileModel, true);
-            this.injector.mapClass('genresFullListModel', spotifyApp.GenresFullListModel, true);
+            this.injector.mapClass('genresModel', spotifyApp.GenresModel, true);
             this.injector.mapClass('artistsModel', spotifyApp.ArtistsModel, true);
             this.injector.mapClass('eventsModel', spotifyApp.EventsModel, true);
             this.injector.mapClass('statesModel', spotifyApp.StatesModel, true);
             this.injector.mapClass('tracksModel', spotifyApp.TracksModel, true);
+            this.injector.mapClass('modalModel', spotifyApp.ModalModel, true);
 
             this.injector.mapClass('geolocationService', spotifyApp.GeolocationService, true);
             this.injector.mapClass('songkickService', spotifyApp.SongkickService, true);
@@ -26,6 +27,8 @@ var spotifyApp = window.spotifyApp || {};
 			this.commands.add(spotifyApp.events.UPDATE_GENRES_FULL, spotifyApp.AppCommand );
 			this.commands.add(spotifyApp.events.ADD_PROFILE_GENRE, spotifyApp.AppCommand );
 			this.commands.add(spotifyApp.events.HANDLE_GENERATE_PLAYLIST, spotifyApp.AppCommand );
+			this.commands.add(spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED, spotifyApp.AppCommand );
+			this.commands.add(spotifyApp.events.EVENTS_BY_ARTISTS_COMPLETED, spotifyApp.AppCommand );
 			this.commands.add(spotifyApp.events.TRACKS_READY, spotifyApp.AppCommand );
 
 			this.createTemplate( spotifyApp.Template, document.getElementById( 'spotify-app' ) );
@@ -56,7 +59,7 @@ var spotifyApp = window.spotifyApp || {};
             var error = params.error;
 
 			var profileModel = this.injector.getValue('profileModel');
-			var genresFullListModel = this.injector.getValue('genresFullListModel');
+			var genresModel = this.injector.getValue('genresModel');
 
             var spotifyService = this.injector.getValue('spotifyService');
             var geolocationService = this.injector.getValue('geolocationService');

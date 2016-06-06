@@ -39,7 +39,7 @@ var spotifyApp = window.spotifyApp || {};
 		},
 		recommendationsByGenre: function(genres) {
 	        return reqwest({
-	            url: 'https://api.spotify.com/v1/recommendations?seed_genres='+genres.toString()+'&limit=100',
+	            url: 'https://api.spotify.com/v1/recommendations?seed_genres='+genres.toString()+'&limit=50',
 	            crossOrigin: true,
 	            headers: {
 	              'Authorization': 'Bearer ' + spotifyApp.access_token
