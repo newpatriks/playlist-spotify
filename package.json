@@ -5,17 +5,20 @@
   "main": "index.js",
   "repository": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test/test.js",
+    "app": "app.js"
   },
   "author": "Jordi Llobet",
   "license": "ISC",
   "devDependencies": {
-
+    "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "sass": "^0.5.0"
+    "mocha": "^2.5.3",
+    "sass": "^0.5.0",
+    "sinon": "^1.17.4"
   },
   "dependencies": {
     "request": "^2.72.0",
