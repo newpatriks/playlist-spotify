@@ -18,7 +18,7 @@ var spotifyApp = window.spotifyApp || {};
 	};
 
 	spotifyApp.AppCommand = function(event, dispatcher, profileModel, genresModel, artistsModel, statesModel, eventsModel, tracksModel, modalModel, spotifyService, songkickService) {
-		var interval;
+		var modalInterval;
 
 		function insertArtists(artistResponse) {
 			// update the artist model with all the artists from the tracks
@@ -153,7 +153,7 @@ var spotifyApp = window.spotifyApp || {};
 					break;
 
 				case spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED:
-					clearInterval(timeout);
+					clearInterval(modalInterval);
 					modalModel.update(1);
 					filterArtistsModelCurrentlyTouring();
 					getEventsByArtists(artistsModel.getFirst());
@@ -190,8 +190,8 @@ var spotifyApp = window.spotifyApp || {};
 						.recommendationsByGenre(profileGenres)
 						.then(function(response) {
 							$('#myModal').modal('show');
-							interval = setInterval(function() {
-								timeout = modalModel.updateMessage(modalModel.getCurrentMessage() + '.');
+							modalInterval = setInterval(function() {
+								modalModel.updateMessage(modalModel.getCurrentMessage() + '.');
 							}, 500);
 
 
