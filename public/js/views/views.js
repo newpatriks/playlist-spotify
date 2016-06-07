@@ -14,9 +14,7 @@ var spotifyApp = window.spotifyApp || {};
             var genres = genresModel.getAll();
 			var states = statesModel.getAll();
 			var currentModelMessage = modalModel.getCurrentMessage();
-
-			console.log(currentModelMessage);
-
+			
             scope.username = profile.name;
             scope.userimage = profile.image;
             scope.genres = profile.genres;

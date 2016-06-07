@@ -105,14 +105,6 @@ var spotifyApp = window.spotifyApp || {};
 				}
 			}
 		},
-		updateArtistOnTour: function(artistId, mbid) {
-			for (var i=0; i < this.artists.length; i++) {
-		        if (this.artists[i].id === artistId) {
-		            this.artists[i].onTour = true;
-					this.artists[i].mbid = mbid;
-		        }
-		    }
-		},
 		getFirst: function() {
 			return this.artists[0];
 		},
@@ -130,13 +122,6 @@ var spotifyApp = window.spotifyApp || {};
 			for (var i=0; i < this.artists.length; i++) {
 		        if (this.artists[i].id === artistId) {
 					return i === (this.artists.length - 1);
-		        }
-		    }
-		},
-		setEligible: function(artistId) {
-			for (var i=0; i < this.artists.length; i++) {
-		        if (this.artists[i].id === artistId) {
-		            this.artists[i].eligible = true;
 		        }
 		    }
 		}

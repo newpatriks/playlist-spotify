@@ -49,7 +49,8 @@ var spotifyApp = window.spotifyApp || {};
 				if (locationEvent[2] === 'US') {
 					var stateEvent = locationEvent[1];
 					if (compareToCurrentLocationOfUser(stateEvent)) {
-						artistsModel.setEligible(artistId);
+						// artistsModel.setEligible(artistId);
+						artistsModel.update(artistId, null, null, null, true);
 					}
 				}
 			});
@@ -102,12 +103,8 @@ var spotifyApp = window.spotifyApp || {};
 		}
 
 		function filterArtistsModelCurrentlyTouring() {
-			// remove all artists who are not touring
 			var artists = artistsModel.getAll();
-			// return artists.filter(function(artist) {
-			// 	return artist.onTour === true;
-			// });
-			for (var i = artists.length - 1; i > 0; i--) {
+			for (var i = artists.length - 1; i >= 0; i--) {
 				var artist = artists[i];
 				if (!artist.onTour) {
 					artistsModel.remove(artist.id);
@@ -155,12 +152,9 @@ var spotifyApp = window.spotifyApp || {};
 					break;
 
 				case spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED:
-					// var artists = filterArtistsModelCurrentlyTouring();
 					modalModel.update(1);
 					filterArtistsModelCurrentlyTouring();
 					getEventsByArtists(artistsModel.getFirst());
-
-
 					break;
 
 				case spotifyApp.events.EVENTS_BY_ARTISTS_COMPLETED:

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Spotify App Tests</title>
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.5.3/mocha.min.css">
+</head>
+<body>
+    <div id="mocha"></div>
+    <div id="messages"></div>
+    <div id="fixtures"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.5.3/mocha.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js"></script>
+
+    <!-- LIB FILES -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js" charset="utf-8"></script>
+    <script src="../public/js/libs/soma.min.js"></script>
+    <script src="../public/js/libs/soma-template.js"></script>
+    <script src="../public/js/libs/typeahead.min.js"></script>
+
+    <script src="../public/js/models/models.js"></script>
+	<script src="../public/js/services/services.js"></script>
+	<script src="../public/js/views/views.js"></script>
+	<script src="../public/js/controllers/controllers.js"></script>
+	<script src="../public/js/app.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <script src="models.js"></script>
+    <script src="controllers.js"></script>
+    <script>mocha.run();</script>
+</body>
+</html>
