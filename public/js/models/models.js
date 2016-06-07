@@ -481,9 +481,9 @@ var spotifyApp = window.spotifyApp || {};
 	spotifyApp.ModalModel = function(dispatcher) {
 		this.dispatcher = dispatcher;
 		this.messages = [
-			'Just starting to cook your playlist :) ',
-			'Looking for artists out there playling...',
-			'Picking up the tracks that you need to prepare for the concert...',
+			'Starting to cook your playlist',
+			'Looking for artists touring...',
+			'Picking up the tracks...',
 			'Your playlist is ready!'
 		];
 		this.currentMessage = 0;
@@ -492,6 +492,10 @@ var spotifyApp = window.spotifyApp || {};
 	spotifyApp.ModalModel.prototype = {
 		update: function(i) {
 			this.currentMessage = i;
+			this.dispatcher.dispatch(spotifyApp.events.RENDER);
+		},
+		updateMessage: function(value) {
+			this.messages[this.currentMessage] = value;
 			this.dispatcher.dispatch(spotifyApp.events.RENDER);
 		},
 		getCurrentMessage: function() {

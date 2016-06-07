@@ -22,15 +22,13 @@
                   </div>
                   <div id="loggedin" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <div class="row">
-                          <div id="user-profile" class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                              <div class="media">
-                                  <div class="pull-left">
-                                      <img class="media-object" width="150" src="{{userimage}}" /><br/>
-                                      {{username}}
-                                  </div>
-                              </div>
+                          <div id="user-profile" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                              <img class="media-object" width="150" src="{{userimage}}" />
+                              <ul>
+                                  <li>{{username}}</li>
+                              </ul>
                           </div>
-                          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                               <div class="row">
                                   <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                                       <label>Select your location:</label>
@@ -42,24 +40,26 @@
                                       </select>
                                   </div>
                               </div>
-                              </dl>
-                              <div id="genres" class="well">
-                                  <fieldset class="form-group">
-                                      <label for="genres">Type your favourite genres: (min. 3, max. 5)</label>
-                                      <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock"/>
+                              <div class="row">
+                                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                      <div id="genres" class="well">
+                                          <fieldset class="form-group">
+                                              <label for="genres">Type your favourite genres: (min. 3, max. 5)</label>
+                                              <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock"/>
 
-                                      <ul id="genre-list" class="data-cloak">
-                                          <li data-repeat="genre in genres">
-                                              <div class="view">
-                                                  <label>{{genre}}</label>
-                                              </div>
-                                          </li>
-                                      </ul>
-                                  </fieldset>
-                                  <button id="generate-playlist__button" class="btn btn-default disabled" data-click="generatePlaylist()">Generate Playlist</button>
+                                              <ul id="genre-list" class="data-cloak">
+                                                  <li data-repeat="genre in genres">
+                                                      <div class="view">
+                                                          <label>{{genre}}</label>
+                                                      </div>
+                                                  </li>
+                                              </ul>
+                                          </fieldset>
+                                          <button id="generate-playlist__button" class="btn btn-default disabled" data-click="generatePlaylist()">Generate Playlist</button>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
-
                       </div>
                   </div>
                   <div id="oauth"></div>
