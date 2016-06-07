@@ -1,5 +1,5 @@
 #Playlist creator
----
+
 
 ##How to
 
@@ -35,4 +35,3 @@ I have some unit tests for the app (mainly for the models and the controller). T
 ##Testing
 
 To run the tests you need to do it on the browser, just launching the url of the tests itself. 
-
