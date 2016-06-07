@@ -13,14 +13,16 @@ var spotifyApp = window.spotifyApp || {};
             var profile = profileModel.getAll();
             var genres = genresModel.getAll();
 			var states = statesModel.getAll();
-			var currentModelMessage = modalModel.getCurrentMessage();
-			
+			var currentModalMessage = modalModel.getCurrentMessage();
+			var currentModalSubtitle = modalModel.getSubtitle();
+
             scope.username = profile.name;
             scope.userimage = profile.image;
             scope.genres = profile.genres;
             scope.genresFullList = genres;
 			scope.states = states;
-			scope.modalMessage = currentModelMessage;
+			scope.modalMessage = currentModalMessage;
+			scope.modalSubtitle = currentModalSubtitle;
 
             if (scope.genres.length >= 3) {
                 // enable button

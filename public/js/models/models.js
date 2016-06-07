@@ -482,10 +482,11 @@ var spotifyApp = window.spotifyApp || {};
 		this.dispatcher = dispatcher;
 		this.messages = [
 			'Starting to cook your playlist',
-			'Looking for artists touring...',
+			'Filtering artists touring...',
 			'Picking up the tracks...',
 			'Your playlist is ready!'
 		];
+		this.subtitle = '';
 		this.currentMessage = 0;
 	};
 
@@ -497,6 +498,13 @@ var spotifyApp = window.spotifyApp || {};
 		updateMessage: function(value) {
 			this.messages[this.currentMessage] = value;
 			this.dispatcher.dispatch(spotifyApp.events.RENDER);
+		},
+		updateSubtitle: function(value) {
+			this.subtitle = value;
+			this.dispatcher.dispatch(spotifyApp.events.RENDER);
+		},
+		getSubtitle: function(value) {
+			return this.subtitle;
 		},
 		getCurrentMessage: function() {
 			return this.messages[this.currentMessage];

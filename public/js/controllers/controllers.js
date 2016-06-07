@@ -18,7 +18,6 @@ var spotifyApp = window.spotifyApp || {};
 	};
 
 	spotifyApp.AppCommand = function(event, dispatcher, profileModel, genresModel, artistsModel, statesModel, eventsModel, tracksModel, modalModel, spotifyService, songkickService) {
-		var modalInterval;
 
 		function insertArtists(artistResponse) {
 			// update the artist model with all the artists from the tracks
@@ -67,6 +66,7 @@ var spotifyApp = window.spotifyApp || {};
 		}
 
 		function setArtistInfoSongkickId(artist) {
+			modalModel.updateSubtitle(artist.name);
 			songkickService
 				.getArtistName(artist.name)
 				.then(function(artistResponse) {
@@ -153,8 +153,8 @@ var spotifyApp = window.spotifyApp || {};
 					break;
 
 				case spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED:
-					clearInterval(modalInterval);
 					modalModel.update(1);
+					modalModel.updateSubtitle('');
 					filterArtistsModelCurrentlyTouring();
 					getEventsByArtists(artistsModel.getFirst());
 					break;
@@ -190,12 +190,8 @@ var spotifyApp = window.spotifyApp || {};
 						.recommendationsByGenre(profileGenres)
 						.then(function(response) {
 							$('#myModal').modal('show');
-							modalInterval = setInterval(function() {
-								modalModel.updateMessage(modalModel.getCurrentMessage() + '.');
-							}, 500);
-
-
 							insertArtists(response);
+
 							setArtistInfoSongkickId(artistsModel.getFirst());
 						});
 
