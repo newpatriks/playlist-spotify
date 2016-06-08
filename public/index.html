@@ -45,11 +45,6 @@
                                         <div id="genres" class="well">
                                             <fieldset class="form-group">
                                                 <label for="genres">Type your favourite genres: (min. 3, max. 5)</label>
-                                                <!--
-                                                    <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock"/>
-                                                    <button type="button" class="btn btn-default" data-click="addGenre()">Add</button>
-                                                -->
-
                                                 <div class="input-group">
                                                     <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock">
                                                     <span class="input-group-btn">
@@ -84,7 +79,8 @@
                             <small>{{modalSubtitle}}<small>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                            <p> That could take a bit of time... sit back and relax :) </p>
+                            <button id="modal-button-ok" type="button" class="btn btn-default hide" data-dismiss="modal">Ok</button>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

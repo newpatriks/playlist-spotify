@@ -31,6 +31,10 @@ var spotifyApp = window.spotifyApp || {};
                 element.classList.remove('disabled');
             }
 
+			if (modalModel.currentMessage === 3) {
+				document.getElementById('modal-button-ok').classList.remove('hide');
+			}
+
 			template.render();
 
 		}.bind( this ));
@@ -40,7 +44,6 @@ var spotifyApp = window.spotifyApp || {};
         };
 
         scope.addGenre = function(event) {
-			console.log(event.which);
 			var element = document.getElementById("input-genres");
 			var value = element.value.trim();
 			if ((event.which === ENTER_KEY || event.which === ADD) && value !== '' ) {
