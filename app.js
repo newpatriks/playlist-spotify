@@ -48,14 +48,6 @@ app.get('/login', function(req, res) {
     }));
 });
 
-// app.get('/city', function(req, res) {
-//     res.redirect('https://maps.googleapis.com/maps/api/geocode/json?' +
-//     querystring.stringify({
-//         latlng: latlng,
-//         key: apiKey
-//     }));
-// });
-
 app.get('/callback', function(req, res) {
 
   // your application requests refresh and access tokens

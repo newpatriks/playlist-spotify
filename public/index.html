@@ -46,7 +46,7 @@
                                           <fieldset class="form-group">
                                               <label for="genres">Type your favourite genres: (min. 3, max. 5)</label>
                                               <input type="text" id="input-genres" data-keypress="addGenre()" data-provide="typeahead" name="genres" class="form-control typeahead" placeholder="Rock"/>
-
+                                              <button type="button" class="btn btn-default" data-click="addGenre()">Add</button>
                                               <ul id="genre-list" class="data-cloak">
                                                   <li data-repeat="genre in genres">
                                                       <div class="view">
@@ -73,9 +73,11 @@
                           <p>{{modalMessage}}</p>
                           <small>{{modalSubtitle}}<small>
                       </div>
+                      {{if ok_enabled then}}
                       <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
                       </div>
+                      {{endif}}
                   </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->
@@ -99,13 +101,4 @@
 	<script src="js/controllers/controllers.js"></script>
 	<script src="js/app.js"></script>
 
-
-    <script>
-
-
-
-
-
-
-    </script>
 </html>
