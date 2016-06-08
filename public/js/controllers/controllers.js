@@ -153,6 +153,7 @@ var spotifyApp = window.spotifyApp || {};
 					break;
 
 				case spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED:
+					$('#myModal').modal('show');
 					modalModel.update(1);
 					modalModel.updateSubtitle('');
 					filterArtistsModelCurrentlyTouring();
@@ -160,6 +161,7 @@ var spotifyApp = window.spotifyApp || {};
 					break;
 
 				case spotifyApp.events.EVENTS_BY_ARTISTS_COMPLETED:
+					$('#myModal').modal('show');
 					modalModel.update(2);
 					var profile = profileModel.getAll();
 					spotifyService
@@ -179,6 +181,7 @@ var spotifyApp = window.spotifyApp || {};
 					spotifyService
 						.addTracks(profileModel.getAll().id, profileModel.getAll().playlistId, tracksModel.getAll())
 						.then(function(response) {
+							$('#myModal').modal('show');
 							modalModel.update(3);
 						});
 
