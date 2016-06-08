@@ -5,6 +5,7 @@ var spotifyApp = window.spotifyApp || {};
 	'use strict';
 
     var ENTER_KEY = 13;
+	var ADD = 1;
 
 	spotifyApp.Template = function(scope, template, dispatcher, genresModel, profileModel, statesModel, modalModel) {
 
@@ -39,9 +40,10 @@ var spotifyApp = window.spotifyApp || {};
         };
 
         scope.addGenre = function(event) {
+			console.log(event.which);
 			var element = document.getElementById("input-genres");
 			var value = element.value.trim();
-			if ( value !== '' ) {
+			if ((event.which === ENTER_KEY || event.which === ADD) && value !== '' ) {
 				dispatcher.dispatch(spotifyApp.events.ADD_PROFILE_GENRE, value);
 				element.value = '';
 			}
