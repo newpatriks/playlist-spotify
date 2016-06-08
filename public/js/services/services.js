@@ -89,34 +89,14 @@ var spotifyApp = window.spotifyApp || {};
 		this.appName = 'spotifyApp';
 	};
 	spotifyApp.SongkickService.prototype = {
-		get: function(url) {
-			return reqwest({
-				url: url + '&apikey=' + this.songkickApiKey+'&jsoncallback=?',
-				crossOrigin: true
-			});
-		},
 		getArtistName: function(artist) {
-			return $.getJSON('https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?'
-				//function(data){
-					// data is JSON response object
-				// }
-			);
-			// return reqwest({
-			// 	url: 'https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?',
-			// 	crossOrigin: true
-			// });
+			return $.getJSON('https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?');
 		},
 		getEventsByLocation: function(artist, lat, lon) {
-			return reqwest({
-				url: 'https://api.songkick.com/api/3.0/events.json?apikey='+this.songkickApiKey+'&artist='+artist+'&location=geo:'+lat+','+lon+'&jsoncallback=?',
-				crossOrigin: true
-			});
+			return $.getJSON('https://api.songkick.com/api/3.0/events.json?apikey='+this.songkickApiKey+'&artist='+artist+'&location=geo:'+lat+','+lon+'&jsoncallback=?');
 		},
 		getEventsByArtist: function(artist) {
-			return reqwest({
-				url: 'https://api.songkick.com/api/3.0/artists/mbid:'+ artist +'/calendar.json?apikey='+this.songkickApiKey+'&jsoncallback=?',
-				crossOrigin: true
-			});
+			return $.getJSON('https://api.songkick.com/api/3.0/artists/mbid:'+ artist +'/calendar.json?apikey='+this.songkickApiKey+'&jsoncallback=?');
 		}
 	};
 
