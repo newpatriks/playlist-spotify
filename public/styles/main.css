@@ -75,16 +75,18 @@ html, body {
       border-radius: 10px;
       display: inline; }
 
-.modal-dialog {
+#myModal .modal-dialog {
   width: 350px;
   font-size: 23px;
   text-align: center; }
-
-.modal-body {
+#myModal .modal-body {
   padding: 20px 10px 10px 10px; }
-
-.modal-footer {
+#myModal .modal-footer {
   margin-top: 0px;
   padding: 10px; }
+#myModal p#modal-message-loading {
+  font-size: 10px;
+  text-align: left;
+  margin: 15px 0 0 0; }
 
 /*# sourceMappingURL=main.css.map */

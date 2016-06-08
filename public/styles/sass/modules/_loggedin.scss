@@ -50,17 +50,25 @@
     }
 }
 
-.modal-dialog {
-    width: 350px;
-    font-size: 23px;
-    text-align: center;
-}
+#myModal {
+    .modal-dialog {
+        width: 350px;
+        font-size: 23px;
+        text-align: center;
+    }
 
-.modal-body {
-    padding: 20px 10px 10px 10px;
-}
+    .modal-body {
+        padding: 20px 10px 10px 10px;
+    }
 
-.modal-footer {
-    margin-top: 0px;
-    padding: 10px;
+    .modal-footer {
+        margin-top: 0px;
+        padding: 10px;
+    }
+
+    p#modal-message-loading {
+        font-size: 10px;
+        text-align: left;
+        margin: 15px 0 0 0; 
+    }
 }

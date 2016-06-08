@@ -33,6 +33,7 @@ var spotifyApp = window.spotifyApp || {};
 
 			if (modalModel.currentMessage === 3) {
 				document.getElementById('modal-button-ok').classList.remove('hide');
+				document.getElementById('modal-message-loading').classList.add('hide');
 			}
 
 			template.render();
