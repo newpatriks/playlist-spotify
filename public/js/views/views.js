@@ -39,10 +39,11 @@ var spotifyApp = window.spotifyApp || {};
         };
 
         scope.addGenre = function(event) {
-			var value = document.getElementById("input-genres").value.trim();
-			if ( event.which === ENTER_KEY && value !== '' ) {
+			var element = document.getElementById("input-genres");
+			var value = element.value.trim();
+			if ( value !== '' ) {
 				dispatcher.dispatch(spotifyApp.events.ADD_PROFILE_GENRE, value);
-				event.currentTarget.value = '';
+				element.value = '';
 			}
 		};
 
