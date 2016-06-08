@@ -84,7 +84,8 @@ var spotifyApp = window.spotifyApp || {};
 	};
 
 	spotifyApp.SongkickService = function() {
-		this.songkickApiKey = 'io09K9l3ebJxmxe2';
+		// this.songkickApiKey = 'io09K9l3ebJxmxe2';
+		this.songkickApiKey = '8VOelgHmxA8ffTQ1';
 		this.appName = 'spotifyApp';
 	};
 	spotifyApp.SongkickService.prototype = {
@@ -96,15 +97,8 @@ var spotifyApp = window.spotifyApp || {};
 		},
 		getArtistName: function(artist) {
 			return reqwest({
-				url: 'https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?',
-				crossOrigin: true,
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-					'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-					'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With',
-					'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0'
-
-				}
+				url: 'https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&jsoncallback=?&apikey='+this.songkickApiKey,
+				crossOrigin: true
 			});
 		},
 		getEventsByLocation: function(artist, lat, lon) {
