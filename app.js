@@ -2,7 +2,7 @@ var express = require('express');
 var request = require('request');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
-
+var port = process.env.PORT || 8080;
 var client_id = 'c75da94c59d643ccbca4882b01cd3b28';
 var client_secret = 'c568f0b8fe6a464597ca70b59b993317';
 // var redirect_uri = 'http://localhost:8888/callback';
@@ -119,4 +119,6 @@ app.get('/callback', function(req, res) {
 });
 
 console.log('Listening on 8888');
-app.listen(8888);
+app.listen(port, function() {
+	console.log('Our app is running on http://localhost:' + port);
+});
