@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 
 var client_id = 'c75da94c59d643ccbca4882b01cd3b28';
 var client_secret = 'c568f0b8fe6a464597ca70b59b993317';
-var redirect_uri = 'http://localhost:8888/callback';
+// var redirect_uri = 'http://localhost:8888/callback';
+var redirect_uri = 'https://spotify-assignment.herokuapp.com/callback';
 
 
 /**
