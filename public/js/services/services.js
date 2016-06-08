@@ -96,10 +96,15 @@ var spotifyApp = window.spotifyApp || {};
 			});
 		},
 		getArtistName: function(artist) {
-			return reqwest({
-				url: 'https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?'
-				// , crossOrigin: true
-			});
+			return $.getJSON('https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?'
+				//function(data){
+					// data is JSON response object
+				// }
+			);
+			// return reqwest({
+			// 	url: 'https://api.songkick.com/api/3.0/search/artists.json?query='+ artist +'&apikey='+this.songkickApiKey+'&jsoncallback=?',
+			// 	crossOrigin: true
+			// });
 		},
 		getEventsByLocation: function(artist, lat, lon) {
 			return reqwest({
