@@ -17,12 +17,14 @@ node app
 
 Now we are able to see the app just going to the URL: ```http://localhost:8888```
 
+After log in in using your Spotify account you can **choose a location** (US state) and **between three and five genres** (press enter key to add a new genre).
+
 All the production files are inside of the /public folder apart from the node application file (app.js) that is on the root of the projects folder.
 
 
 ##Technologies
 
-To develope the app I used mainly vanilla javascript. To be able to order my code using **MVC** paradigm and use some patterns such us *mediator-pattern* or *command-pattern* I use the library <a href="http://somajs.github.io/somajs/site/#what-is-soma-js">somajs</a>
+To develop the app I used mainly vanilla javascript. To be able to order my code using **MVC** paradigm and use some patterns such us *mediator-pattern* or *command-pattern* I use the library <a href="http://somajs.github.io/somajs/site/#what-is-soma-js">somajs</a>
 
 For the OAUTH authentication I followed the examples of <a href="https://github.com/JMPerez/spotify-web-api-js">@JMPerez</a> built using ```Nodejs``` with ```Express```.
 
