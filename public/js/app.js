@@ -2,11 +2,11 @@ var spotifyApp = window.spotifyApp || {};
 
 (function( window ) {
 
-	'use strict';
+    'use strict';
 
-	spotifyApp.SpotifyApp = soma.Application.extend({
+    spotifyApp.SpotifyApp = soma.Application.extend({
 
-		init: function() {
+        init: function() {
 
             this.injector.mapClass('profileModel', spotifyApp.ProfileModel, true);
             this.injector.mapClass('genresModel', spotifyApp.GenresModel, true);
@@ -20,22 +20,22 @@ var spotifyApp = window.spotifyApp || {};
             this.injector.mapClass('songkickService', spotifyApp.SongkickService, true);
             this.injector.mapClass('spotifyService', spotifyApp.SpotifyService, true);
 
-			this.commands.add(spotifyApp.events.RENDER, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.LOGIN, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.UPDATE_PROFILE, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.UPDATE_CURRENT_LOCATION, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.UPDATE_GENRES_FULL, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.ADD_PROFILE_GENRE, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.HANDLE_GENERATE_PLAYLIST, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.EVENTS_BY_ARTISTS_COMPLETED, spotifyApp.AppCommand );
-			this.commands.add(spotifyApp.events.TRACKS_READY, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.RENDER, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.LOGIN, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.UPDATE_PROFILE, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.UPDATE_CURRENT_LOCATION, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.UPDATE_GENRES_FULL, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.ADD_PROFILE_GENRE, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.HANDLE_GENERATE_PLAYLIST, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.ARTISTS_CURRENTLY_ON_TOUR_UPDATED, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.EVENTS_BY_ARTISTS_COMPLETED, spotifyApp.AppCommand );
+            this.commands.add(spotifyApp.events.TRACKS_READY, spotifyApp.AppCommand );
 
-			this.createTemplate( spotifyApp.Template, document.getElementById( 'spotify-app' ) );
+            this.createTemplate( spotifyApp.Template, document.getElementById( 'spotify-app' ) );
 
-		},
+        },
 
-		start: function() {
+        start: function() {
             var that = this;
 
             $('#login').show();
@@ -58,8 +58,8 @@ var spotifyApp = window.spotifyApp || {};
             var refresh_token = params.refresh_token;
             var error = params.error;
 
-			var profileModel = this.injector.getValue('profileModel');
-			var genresModel = this.injector.getValue('genresModel');
+            var profileModel = this.injector.getValue('profileModel');
+            var genresModel = this.injector.getValue('genresModel');
 
             var spotifyService = this.injector.getValue('spotifyService');
             var geolocationService = this.injector.getValue('geolocationService');
@@ -82,7 +82,7 @@ var spotifyApp = window.spotifyApp || {};
                     spotifyService.getGenres(access_token).then(function(response) {
                         that.dispatcher.dispatch(spotifyApp.events.UPDATE_GENRES_FULL, response.genres);
 
-					}, function(err) {
+                    }, function(err) {
                         console.log(err);
                     });
 
@@ -94,10 +94,10 @@ var spotifyApp = window.spotifyApp || {};
 
             }
 
-		}
+        }
 
-	});
+    });
 
-	var app = new spotifyApp.SpotifyApp();
+    var app = new spotifyApp.SpotifyApp();
 
 })( window );

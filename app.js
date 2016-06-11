@@ -3,9 +3,9 @@ var request = require('request');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 var port = process.env.PORT || 8080;
-var client_id = process.env.CLIENT_ID;
-var client_secret = process.env.CLIENT_SECRET;
-var redirect_uri = 'https://spotify-assignment.herokuapp.com/callback';
+var client_id = process.env.CLIENT_ID;  // Your clientID
+var client_secret = process.env.CLIENT_SECRET;  // Your ClientSecret
+var redirect_uri = 'https://spotify-assignment.herokuapp.com/callback'; // Your redirectURI
 
 
 /**
@@ -109,7 +109,7 @@ app.get('/callback', function(req, res) {
   }
 });
 
-console.log('Listening on 8888');
+
 app.listen(port, function() {
-	console.log('Our app is running on http://localhost:' + port);
+    console.log('The app is running on http://localhost:' + port);
 });
