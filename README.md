@@ -1,5 +1,5 @@
 #Playlist creator
-
+The app creates a playlist from bands related to the genres selected and also bands that will play in the State picked by the user as well. This application uses your Spotify credentials to log in, and it generates a playlist to your profile.
 
 ##How to
 
