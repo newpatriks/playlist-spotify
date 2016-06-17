@@ -1,6 +1,8 @@
 #Playlist creator
 The app creates a playlist from bands related to the genres selected and also bands that will play in the State picked by the user as well. This application uses your Spotify credentials to log in, and it generates a playlist to your profile.
 
+You can give it a try <a href="http://upcoming-concert-playlist.herokuapp.com">here</a>.
+
 ##How to
 
 After download and unzip the project inside a folder, go to the projects folder and using the terminal type the next command to install all the dependencies:
